@@ -44,15 +44,6 @@ class Model
         // add classes
         $pointer = 0;
         foreach($items as &$item) {
-
-            // css classes
-            $pointer++;
-            $class = array();
-            ($pointer%2 == 0) ? $class[] = 'even' : $class[] = 'odd';
-            if($pointer%3 == 0) $class[] = 'third';
-            $classString = implode(' ', $class);
-            $item['class'] = $classString;
-
             // Get the thumbnail-folders
             $folders = FrontendModel::getThumbnailFolders(FRONTEND_FILES_PATH . '/spotlights/images', true);
 
@@ -111,15 +102,6 @@ class Model
         // add classes
         $pointer = 0;
         foreach($items as &$item) {
-
-            // css classes
-            $pointer++;
-            $class = [];
-            ($pointer%2 == 0) ? $class[] = 'even' : $class[] = 'odd';
-            if($pointer%3 == 0) $class[] = 'third';
-            $classString = implode(' ', $class);
-            $item['class'] = $classString;
-
             // Get the thumbnail-folders
             $folders = FrontendModel::getThumbnailFolders(FRONTEND_FILES_PATH . '/spotlights/images', true);
 
