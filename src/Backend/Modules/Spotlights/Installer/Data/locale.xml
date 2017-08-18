@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<locale>
+	<Backend>
+		<Spotlights>
+			<item type="label" name="AddSpotlights">
+				<translation language="nl"><![CDATA[Spotlight toevoegen]]></translation>
+				<translation language="en"><![CDATA[add Spotlight]]></translation>
+			</item>
+      <item type="label" name="Admin">
+        <translation language="nl"><![CDATA[administratie]]></translation>
+        <translation language="en"><![CDATA[administration]]></translation>
+      </item>
+      <item type="error" name="DeleteCategoryNotAllowed">
+        <translation language="nl"><![CDATA[Dit is niet toegestaan.]]></translation>
+        <translation language="en"><![CDATA[This is not allowed.]]></translation>
+      </item>
+      <item type="label" name="Template">
+        <translation language="nl"><![CDATA[template]]></translation>
+        <translation language="en"><![CDATA[template]]></translation>
+      </item>
+      <item type="label" name="EditCategory">
+        <translation language="nl"><![CDATA[categorie wijzigen]]></translation>
+        <translation language="en"><![CDATA[edit category]]></translation>
+      </item>
+      <item type="label" name="ExternalLink">
+        <translation language="nl"><![CDATA[externe link]]></translation>
+        <translation language="en"><![CDATA[external link]]></translation>
+      </item>
+      <item type="label" name="InternalLink">
+        <translation language="nl"><![CDATA[interne link]]></translation>
+        <translation language="en"><![CDATA[internal link]]></translation>
+      </item>
+      <item type="label" name="Link">
+        <translation language="nl"><![CDATA[link]]></translation>
+        <translation language="en"><![CDATA[link]]></translation>
+      </item>
+      <item type="label" name="LinkTitle">
+        <translation language="nl"><![CDATA[linktitel]]></translation>
+        <translation language="en"><![CDATA[linktitle]]></translation>
+      </item>
+      <item type="label" name="NumItems">
+        <translation language="nl"><![CDATA[aantal items]]></translation>
+        <translation language="en"><![CDATA[number of items]]></translation>
+      </item>
+      <item type="label" name="Rotate">
+        <translation language="nl"><![CDATA[roteer]]></translation>
+        <translation language="en"><![CDATA[rotate]]></translation>
+      </item>
+		</Spotlights>
+		<Core>
+			<item type="label" name="Spotlights">
+				<translation language="nl"><![CDATA[Spotlights]]></translation>
+				<translation language="en"><![CDATA[Spotlights]]></translation>
+			</item>
+      <item type="label" name="SpotlightsFromCategory">
+        <translation language="nl"><![CDATA[spotlights uit de categorie]]></translation>
+        <translation language="en"><![CDATA[spotlights from category]]></translation>
+      </item>
+      <item type="label" name="SpotlightsList">
+        <translation language="nl"><![CDATA[Spotlights lijst]]></translation>
+        <translation language="en"><![CDATA[Spotlights list]]></translation>
+      </item>
+		</Core>
+	</Backend>
+	<Frontend>
+		<Core>
+		</Core>
+	</Frontend>
+</locale>

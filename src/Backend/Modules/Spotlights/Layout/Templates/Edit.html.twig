@@ -1,0 +1,193 @@
+{% extends '/Layout/Templates/base.html.twig' %}
+
+{% block actionbar %}
+
+{% endblock %}
+
+{% block content %}
+  {% form edit %}
+
+  <div class="row fork-module-content">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="title" class="control-label">{{ 'lbl.Title'|trans|capitalize }} <abbr title="{{ 'lbl.RequiredField'|trans }}">*</abbr></label>
+        {% form_field_error title %} {% form_field title %}
+      </div>
+    </div>
+  </div>
+
+  <div class="row fork-module-content">
+    <div class="col-md-12">
+      <div role="tabpanel">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#tabContent" aria-controls="content" role="tab" data-toggle="tab">{{ 'lbl.Content'|trans|capitalize }}</a>
+          </li>
+          <li class="pull-right" role="presentation">
+            <a href="#tabSEO" aria-controls="seo" role="tab" data-toggle="tab">{{ 'lbl.SEO'|trans|capitalize }}</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="tabContent">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="panel panel-default panel-editor">
+                  <div class="panel-heading">
+                    <p>{{ 'lbl.MainContent'|trans|capitalize }}
+                      <abbr data-toggle="tooltip" title="{{ 'lbl.RequiredField'|trans|capitalize }}">*</abbr>
+                    </p>
+                    {% form_field_error text %}
+                  </div>
+                  <div class="panel-body">
+                    {% form_field text %}
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <p>{{ 'lbl.Link'|trans|capitalize }}</p>
+                  </div>
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <ul class="list-unstyled">
+                        <li class="checkbox">
+                          <label for="externalLink" class="control-label">{% form_field_error external_link %} {% form_field external_link %}{{ 'lbl.ExternalLink'|trans|capitalize }}</label>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="form-group" id="internalLinks">
+                      <label for="internalUrl" class="control-label">{{ 'lbl.InternalLink'|trans|capitalize }}</label>
+                      {% form_field internal_url %} {% form_field_error internal_url %}
+                    </div>
+                    <div class="form-group" id="externalLinks">
+                      <label for="externalUrl" class="control-label">{{ 'lbl.ExternalLink'|trans|capitalize }}<abbr title="{{ 'lbl.RequiredField'|trans }}">*</abbr></label>
+                      {% form_field external_url %} {% form_field_error external_url %}
+                    </div>
+                    <div class="form-group">
+                      <label for="linkTitle" class="control-label">{{ 'lbl.LinkTitle'|trans|capitalize }}</label>
+                      {% form_field link_title %} {% form_field_error link_title %}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <p>{{ 'lbl.Image'|trans|ucfirst }}</p>
+                  </div>
+                  <div class="panel-body">
+                    <div class="form-group">
+                      {% if item.image %}
+                      <div>
+                        <img src="{{ FRONTEND_FILES_URL }}/spotlights/images/source/{{ item.image }}?time={{ 'now'|date('U') }}" class="img-thumbnail" width="128" height="128" alt="{{ 'lbl.Image'|trans|ucfirst }}" />
+                      </div>
+                      <ul class="list-unstyled">
+                        <li class="checkbox">
+                          <label for="deleteImage" class="control-label">{% form_field delete_image %} {{ 'lbl.Delete'|trans|ucfirst }}</label>
+                          {% form_field_error delete_image %}
+                        </li>
+                      </ul>
+                      {% endif %}
+                      {% form_field image %} {% form_field_error image %}
+                    </div>
+                    <div class="form-group last">
+                      <label for="rotate90{{ image.id }}">
+                        {% form_field rotate_90 %}
+                        {{ 'lbl.Rotate'|trans|ucfirst }} 90°
+                      </label>
+                      <label for="rotate180{{ image.id }}">
+                        {% form_field rotate_180 %}
+                        {{ 'lbl.Rotate'|trans|ucfirst }} 180°
+                      </label>
+                      <label for="rotate270{{ image.id }}">
+                        {% form_field rotate_270 %}
+                        {{ 'lbl.Rotate'|trans|ucfirst }} 270°
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <p>{{ 'lbl.Status'|trans|capitalize }}</p>
+                  </div>
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <ul class="list-unstyled">
+                        {% for option in hidden %}
+                        <li class="radio">
+                          <label for="{{ option.id }}">{{ option.rbtHidden|raw }} {{ option.label }}</label>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <p>{{ 'lbl.MetaData'|trans|capitalize }}</p>
+                  </div>
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <label for="categoryId" class="control-label">{{ 'lbl.Category'|trans|capitalize }}</label>
+                      {% form_field_error categories %} {% form_field categories %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row fork-module-actions">
+    <div class="col-md-12">
+      <div class="btn-toolbar">
+        <div class="btn-group pull-left" role="group">
+          {% if showSpotlightsDelete %}
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete">
+              <span class="fa fa-trash-o"></span>
+              {{ 'lbl.Delete'|trans|ucfirst }}
+            </button>
+          {% endif %}
+        </div>
+        <div class="btn-group pull-right" role="group">
+          <button id="addButton" type="submit" name="add" class="btn btn-primary">
+            <span class="fa fa-plus-square"></span>{{ 'lbl.Save'|trans|capitalize }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endform %}
+
+  {% if showSpotlightsDelete %}
+    {{ form_start(deleteForm) }}
+    {{ form_row(deleteForm._token) }}
+    {{ form_row(deleteForm.id) }}
+    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="modal-title h4">{{ 'lbl.Delete'|trans|ucfirst }}</span>
+          </div>
+          <div class="modal-body">
+            <p>{{ 'msg.ConfirmDelete'|trans|format(item.title)|raw }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              <span class="fa fa-times"></span>{{ 'lbl.Cancel'|trans|ucfirst }}
+            </button>
+            <button type="submit" class="btn btn-danger">
+              <span class="fa fa-trash"></span>{{ 'lbl.Delete'|trans|ucfirst }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ form_end(deleteForm) }}
+  {% endif %}
+{% endblock %}

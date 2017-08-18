@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<name>Spotlights</name>
+	<version>1.0.0</version>
+	<requirements>
+		<minimum_version>versionname</minimum_version>
+	</requirements>
+	<description>
+		<![CDATA[Add a spotlight module to create link blocks with images.]]>
+	</description>
+	<authors>
+		<author>
+			<name><![CDATA[Wouter Verstuyf]]></name>
+			<url><![CDATA[http://www.webflow.be]]></url>
+		</author>
+	</authors>
+	<events>
+		<event application="backend" name="after_add"><![CDATA[Triggered when a Spotlights is added.]]></event>
+		<event application="backend" name="after_delete"><![CDATA[Triggered when a Spotlights is deleted.]]></event>
+		<event application="backend" name="after_edit"><![CDATA[Triggered when a Spotlights is edited.]]></event>
+		<event application="backend" name="after_saved_settings"><![CDATA[Triggered when settings are saved.]]></event>
+	</events>
+</module>

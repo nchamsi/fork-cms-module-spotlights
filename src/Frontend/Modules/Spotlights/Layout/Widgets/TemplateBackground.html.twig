@@ -1,0 +1,26 @@
+<section class="module-spotlights widget-spotlights-list">
+  {% block widget_body %}
+    <div class="widget-body">
+      {% for spotlight in widgetSpotlightsList %}
+
+        {% if spotlight.image %}
+        <div style="background: url('{{ spotlight.image_source }}'); height: 300px; background-size: cover;">
+        {% endif %}
+
+          <h2>{{ spotlight.title }}</h2>
+          {{ spotlight.text|raw }}
+          {% if spotlight.data.link %}
+          <p class="link">
+            <a href="{{ spotlight.data.link.url }}"{% if slideshow.data.link.external %} target="_blank" rel="nofollow"{% endif %} title="{{ spotlight.title }}">
+              {{ spotlight.data.link.title }}
+            </a>
+          </p>
+          {% endif %}
+
+        {% if spotlight.image %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endblock %}
+</section>
